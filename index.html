@@ -1,57 +1,14 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Parafuso Runner</title>
-<link rel="stylesheet" href="style.css">
-</head>
 <body>
+    <canvas id="gameCanvas"></canvas>
 
-<!-- Canvas do jogo -->
-<canvas id="gameCanvas"></canvas>
+    <!-- HUD e menus -->
+    <div id="menu">
+        <h1>Parafuso Run</h1>
+        <button id="startBtn">Iniciar</button>
+    </div>
 
-<!-- HUD -->
-<div id="hud">
-    <div id="score">Score: 0</div>
-    <div id="coins">Coins: 0</div>
-    <div id="multiplier">x1</div>
-</div>
-
-<!-- Menu Principal -->
-<div id="menu">
-    <h1>Parafuso Runner</h1>
-    <div id="selectedCharacter">🛠️</div>
-    <div id="selectedScene">🌵</div>
-    <button id="prevScene">⭠</button>
-    <button id="nextScene">⭢</button>
-    <button id="startBtn">Iniciar</button>
-    <button id="shopBtn">Loja</button>
-</div>
-
-<!-- Loja -->
-<div id="shop" class="overlay">
-    <h2>Loja</h2>
-    <h3>Perks</h3>
-    <div id="perkList"></div>
-    <h3>Skins</h3>
-    <div id="skinList"></div>
-    <button onclick="closeShop()">Fechar</button>
-</div>
-
-<!-- Menu DEV Secreto -->
-<button id="devButton">Feito por Brioche</button>
-<div id="devMenu" class="overlay">
-    <h3>DEV MODE</h3>
-    <button onclick="coins=999999">Dar moedas infinitas</button>
-    <button onclick="unlockAllSkins()">Desbloquear skins</button>
-    <button onclick="unlockAllPerks()">Desbloquear perks</button>
-    <button onclick="speed=10">Velocidade global</button>
-    <button onclick="playerInvincible=true">Modo Imortal</button>
-    <button onclick="spawnObstacle()">Spawn Obstacle</button>
-    <button onclick="resetGame()">Reset Geral</button>
-</div>
-
-<script src="game.js"></script>
+    <button id="devButton">Feito por Brioche</button>
+    <div id="devMenu" style="display:none;">
+        <h2>DEV MENU</h2>
+    </div>
 </body>
-</html>
