@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brioche Runner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="menu">
+        <h1>Brioche Runner</h1>
+
+        <div id="characterPreview"></div>
+
+        <button id="startBtn">Iniciar</button>
+        <button id="storeBtn">Loja</button>
+
+        <p id="creditos" class="secret-btn">Feito por Brioche</p>
+    </div>
+
+    <div id="store" class="hidden">
+        <h2>Loja</h2>
+
+        <div id="coinsBox">Moedas: <span id="coins">0</span></div>
+
+        <div class="tabs">
+            <button class="tabBtn active" data-tab="skinsTab">Skins</button>
+            <button class="tabBtn" data-tab="perksTab">Perks</button>
+        </div>
+
+        <div id="skinsTab" class="tabContent active"></div>
+        <div id="perksTab" class="tabContent"></div>
+
+        <button id="backToMenu">Voltar</button>
+    </div>
+
+    <canvas id="gameCanvas" width="900" height="400" class="hidden"></canvas>
+
+    <div id="cooldowns" class="hidden">
+        <div>Dash: <span id="dashCD">0</span>s</div>
+        <div>Soco: <span id="punchCD">0</span>s</div>
+    </div>
+
+    <!-- DEV MENU SECRETO -->
+    <div id="devMenu" class="hidden dev-panel">
+        <h3>DEV MENU</h3>
+        <button class="devBtn" data-dev="coins">Coins Infinitas</button>
+        <button class="devBtn" data-dev="unlockAll">Desbloquear Tudo</button>
+        <button class="devBtn" data-dev="godmode">Imortalidade</button>
+        <button class="devBtn" data-dev="fast">Velocidade Absurda</button>
+        <button class="devBtn" data-dev="spawn">Spawn de Obstáculos</button>
+        <button class="devBtn" data-dev="reset">Resetar Save</button>
+        <button id="closeDev">Fechar</button>
+    </div>
+
+    <script src="game.js"></script>
+
+</body>
+</html>
