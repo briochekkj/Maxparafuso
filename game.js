@@ -11,8 +11,8 @@ window.addEventListener("resize", resizeCanvas);
 
 // ================== VARIÁVEIS ==================
 let player = {
-    x: 100,
-    y: canvas.height - 100,
+    x: 150,
+    y: canvas.height - 120,
     width: 40,
     height: 60,
     vy: 0,
@@ -21,7 +21,7 @@ let player = {
     dashCooldown: 0,
     punchCooldown: 0,
     slowCooldown: 0,
-    skin: "Base"
+    skin: 0
 };
 
 let speed = 5;
@@ -59,6 +59,23 @@ const abilities = {
 let devMode = false;
 let devTapCount = 0;
 let devTapTime = 0;
+
+// ================== PARTICULAS ==================
+let particles = [];
+function spawnParticle(x,y,color){
+    particles.push({x,y,vx:(Math.random()-0.5)*2,vy:-Math.random()*2,life:30,color});
+}
+function updateParticles(){
+    for(let i=particles.length-1;i>=0;i--){
+        let p = particles[i];
+        p.x+=p.vx; p.y+=p.vy; p.vy+=0.1; p.life--;
+        if(p.life<=0) particles.splice(i,1);
+        else{
+            ctx.fillStyle = p.color;
+            ctx.fillRect(p.x,p.y,2,2);
+        }
+    }
+}
 
 // ================== FUNÇÕES ==================
 
@@ -113,6 +130,7 @@ function updateScore() {
             o.passed = true;
             score += 1;
             coins += 1*multiplier;
+            spawnParticle(player.x+player.width/2, player.y+player.height/2, "yellow");
         }
     });
 }
@@ -123,7 +141,7 @@ function updateMultiplier() {
 // ================== RESET ==================
 function resetGame() {
     obstacles = [];
-    player.y = canvas.height-100;
+    player.y = canvas.height-120;
     player.vy = 0;
     score = 0;
     speed = 5;
@@ -134,14 +152,13 @@ function resetGame() {
 
 // ================== DRAW PLAYER ==================
 function drawPlayer() {
-    let skinColor = skins.find(s=>s.name===player.skin).color;
+    let skinColor = skins[player.skin].color;
     ctx.fillStyle = skinColor;
-    // Corpo
     ctx.fillRect(player.x, player.y, player.width, player.height);
-    // Cabeça (hexagonal simplificado)
+    // Cabeça simplificada
     ctx.fillStyle = "#555";
     ctx.fillRect(player.x+5, player.y-10, player.width-10, 10);
-    // Olhos
+    // Olho
     ctx.fillStyle = "#FFF";
     ctx.fillRect(player.x+10, player.y+15, 5,5);
 }
@@ -186,6 +203,7 @@ function gameLoop(){
     updateMultiplier();
     drawObstacles();
     drawPlayer();
+    updateParticles();
     drawHUD();
 
     obstacles.forEach(o=>{
@@ -193,6 +211,8 @@ function gameLoop(){
             resetGame();
         }
     });
+
+    speed = 5 + Math.floor(timeElapsed/15); // dificuldade progressiva
 
     requestAnimationFrame(gameLoop);
 }
@@ -242,7 +262,7 @@ devButton.addEventListener("click", ()=>{
     }
 });
 
-// ================== BOTÕES ==================
+// ================== BOTÕES PRINCIPAIS ==================
 document.getElementById("startBtn").addEventListener("click", ()=>{
     document.getElementById("menu").style.display="none";
     gameLoop();
