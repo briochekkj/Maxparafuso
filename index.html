@@ -1,14 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Parafuso Run</title>
+<link rel="stylesheet" href="style.css">
+</head>
 <body>
-    <canvas id="gameCanvas"></canvas>
 
-    <!-- HUD e menus -->
-    <div id="menu">
-        <h1>Parafuso Run</h1>
-        <button id="startBtn">Iniciar</button>
-    </div>
+<canvas id="gameCanvas"></canvas>
 
-    <button id="devButton">Feito por Brioche</button>
-    <div id="devMenu" style="display:none;">
-        <h2>DEV MENU</h2>
+<!-- Menu Principal -->
+<div id="menu">
+    <h1>Parafuso Run</h1>
+    <div id="sceneSelect">
+        <button id="prevScene">◀</button>
+        <span id="selectedScene">Deserto</span>
+        <button id="nextScene">▶</button>
     </div>
+    <div id="skinSelect">
+        <button id="prevSkin">◀</button>
+        <span id="selectedCharacter">Parafuso Base</span>
+        <button id="nextSkin">▶</button>
+    </div>
+    <button id="startBtn">Iniciar</button>
+</div>
+
+<!-- Botão DEV -->
+<button id="devButton">Feito por Brioche</button>
+
+<!-- Menu DEV -->
+<div id="devMenu" style="display:none;">
+    <h2>DEV MENU</h2>
+    <button id="giveCoins">Dar moedas infinitas</button>
+    <button id="unlockSkins">Desbloquear todas skins</button>
+    <button id="unlockPerks">Desbloquear todos perks</button>
+    <button id="speedSlider">Velocidade global</button>
+    <button id="godMode">Modo imortal</button>
+    <button id="spawnObstacles">Spawn aleatório</button>
+    <button id="testAnimations">Testar animações</button>
+    <button id="resetGame">Reset geral</button>
+</div>
+
+<!-- Loja Overlay -->
+<div id="shopOverlay" class="overlay">
+    <h2>Loja</h2>
+    <h3>Perks</h3>
+    <div id="perkList"></div>
+    <h3>Skins</h3>
+    <div id="skinList"></div>
+    <button id="closeShop">Fechar</button>
+</div>
+
+<script src="game.js"></script>
 </body>
+</html>
