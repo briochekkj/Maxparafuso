@@ -3,29 +3,27 @@ html,body { width:100%; height:100%; overflow:hidden; }
 
 #gameCanvas { display:block; background:#87CEEB; width:100vw; height:100vh; }
 
-#hud { position:absolute; top:10px; left:10px; color:white; font-size:20px; z-index:10; user-select:none; }
-
-#menu { position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); color:white; display:flex; flex-direction:column; justify-content:center; align-items:center; z-index:20; }
-#menu h1 { font-size:36px; margin-bottom:20px; }
-#menu button { font-size:22px; padding:12px 30px; margin:10px; border:none; border-radius:10px; background:#444; color:white; cursor:pointer; }
+#menu { position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); color:white; display:flex; flex-direction:column; justify-content:center; align-items:center; z-index:20; }
+#menu h1 { font-size:42px; margin-bottom:25px; }
+#menu button { font-size:24px; padding:15px 40px; margin:12px; border:none; border-radius:12px; background:#444; color:white; cursor:pointer; }
 #menu button:hover { background:#666; }
-#sceneSelect,#skinSelect { display:flex; align-items:center; margin:5px; }
-#sceneSelect button,#skinSelect button { font-size:28px; padding:8px 20px; }
-#selectedScene,#selectedCharacter { font-size:24px; margin:0 10px; }
+#sceneSelect,#skinSelect { display:flex; align-items:center; margin:8px; }
+#sceneSelect button,#skinSelect button { font-size:32px; padding:10px 25px; }
+#selectedScene,#selectedCharacter { font-size:26px; margin:0 12px; }
 
-.overlay { position:absolute; top:10%; left:50%; transform:translateX(-50%); width:80%; max-width:400px; background:#222; color:white; padding:20px; border-radius:12px; display:none; z-index:30; overflow-y:auto; max-height:80%; }
-.overlay h2,h3 { text-align:center; margin-bottom:10px; }
-.overlay button { display:block; width:90%; margin:10px auto; padding:10px; border-radius:8px; border:none; background:#444; color:white; font-size:18px; cursor:pointer; }
+.overlay { position:absolute; top:5%; left:50%; transform:translateX(-50%); width:85%; max-width:450px; background:#222; color:white; padding:25px; border-radius:15px; display:none; z-index:30; overflow-y:auto; max-height:90%; }
+.overlay h2,h3 { text-align:center; margin-bottom:15px; }
+.overlay button { display:block; width:90%; margin:12px auto; padding:12px; border-radius:10px; border:none; background:#444; color:white; font-size:20px; cursor:pointer; }
 .overlay button:hover { background:#666; }
 
-#skinList div { margin:5px 0; padding:8px; border-radius:8px; text-align:center; font-size:16px; border:2px solid; }
+#skinList div { margin:6px 0; padding:10px; border-radius:10px; text-align:center; font-size:18px; border:3px solid; }
 #skinList div[data-rarity="Comum"]{border-color:gray;}
 #skinList div[data-rarity="Incomum"]{border-color:green;}
 #skinList div[data-rarity="Rara"]{border-color:blue;}
 #skinList div[data-rarity="Épica"]{border-color:purple;}
 #skinList div[data-rarity="Lendária"]{border-color:gold;}
 
-#devButton { position:absolute; bottom:10px; left:10px; font-size:12px; padding:4px 8px; background:black; color:white; border-radius:6px; border:none; cursor:pointer; z-index:15; }
-#devMenu { background:rgba(50,50,50,0.95); padding:10px; border-radius:10px; }
+#devButton { position:absolute; bottom:15px; left:15px; font-size:14px; padding:6px 12px; background:black; color:white; border-radius:8px; border:none; cursor:pointer; z-index:15; }
+#devMenu { background:rgba(50,50,50,0.95); padding:15px; border-radius:12px; }
 
-@media (max-width:800px) { #menu h1 { font-size:28px; } #menu button { font-size:18px; padding:10px 20px; } #selectedScene,#selectedCharacter { font-size:18px; } }
+@media (max-width:800px) { #menu h1 { font-size:36px; } #menu button { font-size:20px; padding:12px 30px; } #selectedScene,#selectedCharacter { font-size:20px; } }
